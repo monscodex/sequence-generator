@@ -1,8 +1,12 @@
-# Fn that takes formula string and number.
-# Uses  %s to replace n with number and eval()
 def test_formula(formula: str, term_index: int) -> float:
-    pass
+    formula_with_replaced_term_index = formula.replace("n", str(term_index))
 
-# Provideas another  fn
+    sequence_term = eval(formula_with_replaced_term_index)
+
+    return sequence_term
+
 def verify_formula(formula: str, expected_terms: dict[int, float]) -> bool:
-    pass
+    return all(
+        term_value == test_formula(formula, term_index)
+        for term_index, term_value in expected_terms.items()
+    )
