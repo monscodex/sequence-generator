@@ -2,13 +2,14 @@ sequence = input("Insert sequence following this pattern, '1;2;3;4'")
 sequence = sequence.split(";")
 
 def compile(S:list)-> str:
-    result = S[0]
-    for i in range(1,len(S)):
-        nullifier = [f"(n-{j})" for j in range(i)].join("") 
-        value = (execute(result)-S[i])/(i-2)
-        result = value+"*"+nullifier+f"+{result}"
+    result = ""
+    for i in range(1,len(S)+1):
+        nullifier = "" # all the (n-1)(n-2)... 
+        X = ""# the coeficient of the nullifier
+        result = f"{value}*{nullifier}+{result}"
     return result
 
 def execute():
     pass
 
+print(compile(sequence))
