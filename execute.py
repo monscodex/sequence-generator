@@ -1,7 +1,8 @@
 def test_formula(formula: str, term_index: int) -> float:
-    formula_with_replaced_term_index = formula.replace("n", str(term_index))
+    formula = formula.replace("n", str(term_index))
+    formula = formula.replace(")(", ")*(")
 
-    sequence_term = eval(formula_with_replaced_term_index)
+    sequence_term = eval(formula)
 
     return sequence_term
 
